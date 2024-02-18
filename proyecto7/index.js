@@ -1,28 +1,18 @@
-//Defino la clase productManager y los metodos que esta clase puede utilizar addProducts, getProducts,  getProductsById
-class productManager {
-    // Constructor de la clase productManager
-    constructor (title, description, price, stock, thumbnaild, code){
-        // Inicialización de las propiedades del producto
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.stock = stock;
-        this.thumbnaild = thumbnaild;
-        this.code = code;
-        this.nextId = 1; // Inicializamos el contador de IDs en 1
-        // Inicialización del array de productos
+class ProductManager {
+    constructor() {
+        // Inicializa el ID del próximo producto en 1
+        this.nextId = 1;
+        // Inicializa el array de productos vacío
         this.products = [];
     }
 
     // Método para agregar un producto al inventario
-    addProduct() {
-        const { title, description, price, stock, thumbnaild, code } = this;
-        
-        // Creamos un nuevo ID único para el producto
+    addProduct(title, description, price, stock, thumbnaild, code) {
+        // Genera un nuevo ID para el producto y luego incrementa el contador de ID
         const id = this.nextId++;
-        
+        // Crea un nuevo objeto producto con los parámetros dados
         const newProduct = {
-            id, // Asignamos el ID al nuevo producto
+            id,
             title,
             description,
             price,
@@ -31,60 +21,59 @@ class productManager {
             code
         };
 
+        // Comprueba si el código del producto ya existe en otro producto
         if (this.codeExist(code)) {
+            // Imprime un mensaje de advertencia si el código ya existe
             console.log(`El código ${code} ya existe en otro producto.`);
         } else {
+            // Agrega el nuevo producto al array de productos si el código no existe
             this.products.push(newProduct);
+            // Imprime un mensaje de confirmación de que el producto se agregó
             console.log(`Producto ${title} agregado al inventario con ID ${id}.`);
         }
     }
 
+    // Método para verificar si un código de producto ya existe en otro producto
     codeExist(code) {
+        // Utiliza el método some() para verificar si algún producto tiene el mismo código
         return this.products.some(product => product.code === code);
     }
 
-
     // Método para obtener todos los productos del inventario
     getProducts() {
+        // Devuelve el array de productos
         return this.products;
     }
 
-    // Método para obtener un producto por su código
-    getProductsById(id) {
-        // Utiliza el método find() para buscar un producto con el código dado
-       if (id) {
-        return this.products.find(product => product.code === id);
-       }
-       else{
-        console.log("this ID not found");
-       } 
+    // Método para obtener un producto por su ID
+    getProductById(id) {
+        // Busca el producto con el ID dado en el array de productos
+        const product = this.products.find(product => product.id === id);
+        // Si se encuentra el producto, imprime los datos del producto y lo devuelve
+        if (product) {
+            console.log(`Datos del producto con ID: ${product.id}`);
+            return product;
+        } else {
+            // Si el producto no se encuentra, imprime un mensaje de error y devuelve null
+            console.error(`Producto con ID ${id} no encontrado.`);
+            return null;
+        }
     }
 }
 
 // Ejemplo de uso
-// Crear una instancia de la clase productManager con parámetros de ejemplo
-const manager = new productManager('Título', 'Descripción', 10, 100, 'imagen.jpg', 'ABC123');
-// Agregar un producto al inventario llamando al método addProduct()
-manager.addProduct();
+const manager = new ProductManager();
+// Agrega algunos productos al inventario
+manager.addProduct('Título', 'Descripción', 10, 100, 'imagen.jpg', 'ABC123');
+manager.addProduct('Título1', 'Descripción1', 10, 100, 'imagen1.jpg', 'ABC1243');
+manager.addProduct('Título2', 'Descripción1¡', 10, 100, 'imagen2.jpg', 'AB4C123');
 
-// Crear otra instancia de la clase productManager con parámetros de ejemplo
-const manager1 = new productManager('Título1', 'Descripción1', 10, 100, 'imagen1.jpg', 'ABC123');
-// Agregar otro producto al inventario llamando al método addProduct() de manager1
-manager1.addProduct();
-
-// Imprimir todos los productos del inventario llamando al método getProducts()
-console.log(manager.getProducts());
-
-// Obtener todos los productos del inventario llamando al método getProducts()
+// Muestra todos los productos del inventario
 console.log("Todos los productos:");
 console.log(manager.getProducts());
-console.log(manager1.getProducts());
 
-// Obtener un producto por su código llamando al método getProductsById()
-console.log("Producto con código 'ABC123':");
-console.log(manager.getProductsById('ABC123'));
+// Muestra los detalles de un producto específico por su ID
+console.log(manager.getProductById(2));
 
-// Intentar obtener un producto con un código que no existe
-console.log("Producto con código '123456' (no existe):");
-console.log(manager.getProductsById('123456'));
-
+// Intenta buscar un producto con un ID que no existe
+console.log(manager.getProductById(3));
