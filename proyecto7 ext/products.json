@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Nuevo Título",
+    "description": "Descripción",
+    "price": 20,
+    "stock": 100,
+    "thumbnaild": "imagen.jpg",
+    "code": "ABC123"
+  },
+  {
+    "id": 2,
+    "title": "Título1",
+    "description": "Descripción1",
+    "price": 10,
+    "stock": 100,
+    "thumbnaild": "imagen1.jpg",
+    "code": "ABC1243"
+  },
+  {
+    "id": 3,
+    "title": "Título2",
+    "description": "Descripción1¡",
+    "price": 10,
+    "stock": 100,
+    "thumbnaild": "imagen2.jpg",
+    "code": "AB4C123"
+  }
+]
