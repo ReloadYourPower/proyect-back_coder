@@ -1,130 +1,48 @@
-// Definición de la clase productManager
-Clase productManager:
-    // Constructor de la clase
-    Función constructor(title, description, price, stock, thumbnaild, code):
-        // Inicialización de las propiedades del producto
-        this.title = title
-        this.description = description
-        this.price = price
-        this.stock = stock
-        this.thumbnaild = thumbnaild
-        this.code = code
-        // Inicialización del array de productos
-        this.products = []
+CLASE ProductManager:
+    ATRIBUTOS:
+        nextId <- 1
+        products <- []
 
-    // Método para agregar un producto al inventario
-    Función agregarProducto():
-        // Desestructuración de las propiedades del producto
-        title = this.title
-        description = this.description
-        price = this.price
-        stock = this.stock
-        thumbnaild = this.thumbnaild
-        code = this.code
-        // Creación del nuevo producto
-        nuevoProducto = {
-            title,
-            description,
-            price,
-            stock,
-            thumbnaild,
-            code
-        }
-        // Verificación de si el código del producto ya existe en el inventario
-        Si existeCodigo(code):
-            Mostrar mensaje "El código <código> ya existe en otro producto."
-        Sino:
-            Agregar nuevoProducto al array de productos
-            Mostrar mensaje "Producto <título> agregado al inventario."
+    MÉTODO addProduct(title, description, price, stock, thumbnaild, code):
+        // Agrega un producto al inventario
+        id <- nextId
+        Incrementar nextId
+        Crear un nuevo objeto producto con los parámetros dados
+        SI el código del producto ya existe en otro producto:
+            Imprimir "El código ya existe en otro producto."
+        SINO:
+            Agregar el nuevo producto al array de productos
+            Imprimir "Producto agregado al inventario con ID [id]."
 
-    // Método para verificar si un código de producto ya // Defino la clase productManager y los métodos que esta clase puede utilizar: addProducts, getProducts, getProductsById
+    MÉTODO codeExist(code):
+        // Verifica si un código de producto ya existe en otro producto
+        PARA CADA producto EN products:
+            SI el código del producto es igual a code:
+                Devolver VERDADERO
+        Devolver FALSO
 
-Clase productManager:
-    // Constructor de la clase productManager
-    Función constructor(title, description, price, stock, thumbnaild, code):
-        // Inicialización de las propiedades del producto
-        this.title = title
-        this.description = description
-        this.price = price
-        this.stock = stock
-        this.thumbnaild = thumbnaild
-        this.code = code
-        this.nextId = 1 // Inicializamos el contador de IDs en 1
-        // Inicialización del array de productos
-        this.products = []
+    MÉTODO getProducts():
+        // Obtiene todos los productos del inventario
+        Devolver products
 
-    // Método para agregar un producto al inventario
-    Función agregarProducto():
-        // Desestructuración de las propiedades del producto
-        title = this.title
-        description = this.description
-        price = this.price
-        stock = this.stock
-        thumbnaild = this.thumbnaild
-        code = this.code
-        // Creamos un nuevo ID único para el producto
-        id = this.nextId++
-        // Creación del nuevo producto
-        nuevoProducto = {
-            id, // Asignamos el ID al nuevo producto
-            title,
-            description,
-            price,
-            stock,
-            thumbnaild,
-            code
-        }
-
-        // Verificación de si el código del producto ya existe en el inventario
-        Si existeCodigo(code) Entonces:
-            Escribir "El código ", code, " ya existe en otro producto."
-        Sino:
-            Agregar nuevoProducto al array de productos
-            Escribir "Producto ", title, " agregado al inventario con ID ", id.
-
-    // Método para verificar si un código de producto ya existe en el inventario
-    Función existeCodigo(code):
-        // Utiliza el método some() para verificar si algún producto tiene el mismo código
-        Para cada producto en this.products Hacer:
-            Si producto.code es igual a code Entonces:
-                Retornar Verdadero
-        Retornar Falso
-
-    // Método para obtener todos los productos del inventario
-    Función obtenerProductos():
-        Retornar this.products
-
-    // Método para obtener un producto por su código
-    Función obtenerProductoPorId(id):
-        // Utiliza el método find() para buscar un producto con el código dado
-        Si id Existe Entonces:
-            Para cada producto en this.products Hacer:
-                Si producto.code es igual a id Entonces:
-                    Retornar producto
-            Escribir "Este ID no se encontró."
-        Sino:
-            Escribir "ID no válido."
+    MÉTODO getProductById(id):
+        // Obtiene un producto por su ID
+        PARA CADA producto EN products:
+            SI el ID del producto es igual a id:
+                Imprimir "Datos del producto con ID: [id]"
+                Devolver el producto
+        Imprimir "Producto no encontrado."
+        Devolver NULO
 
 // Ejemplo de uso
-// Crear una instancia de la clase productManager con parámetros de ejemplo
-manager = Nueva instancia de productManager con parámetros 'Título', 'Descripción', 10, 100, 'imagen.jpg', 'ABC123'
-// Agregar un producto al inventario llamando al método agregarProducto()
-manager.agregarProducto()
+manager <- Crear una nueva instancia de la clase ProductManager
+manager.addProduct('Título', 'Descripción', 10, 100, 'imagen.jpg', 'ABC123')
+manager.addProduct('Título1', 'Descripción1', 10, 100, 'imagen1.jpg', 'ABC1243')
+manager.addProduct('Título2', 'Descripción1¡', 10, 100, 'imagen2.jpg', 'AB4C123')
 
-// Crear otra instancia de la clase productManager con parámetros de ejemplo
-manager1 = Nueva instancia de productManager con parámetros 'Título1', 'Descripción1', 10, 100, 'imagen1.jpg', 'ABC123'
-// Agregar otro producto al inventario llamando al método agregarProducto()
-manager.agregarProducto()
+Imprimir "Todos los productos:"
+Imprimir manager.getProducts()
 
-// Imprimir todos los productos del inventario llamando al método obtenerProductos()
-Escribir "Todos los productos:"
-Escribir manager.obtenerProductos()
-Escribir manager1.obtenerProductos()
+Imprimir manager.getProductById(2)
 
-// Obtener un producto por su código llamando al método obtenerProductoPorId()
-Escribir "Producto con código 'ABC123':"
-Escribir manager.obtenerProductoPorId('ABC123')
-
-// Intentar obtener un producto con un código que no existe
-Escribir "Producto con código '123456' (no existe):"
-Escribir manager.obtenerProductoPorId('123456')
+Imprimir manager.getProductById(3)
