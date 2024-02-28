@@ -96,27 +96,29 @@ class ProductManager {
 
     }
 
-// Ejemplo de uso
-const manager = new ProductManager();
-manager.addProduct('Título', 'Descripción', 10, 100, 'imagen.jpg', 'ABC123');
-manager.addProduct('Título1', 'Descripción1', 10, 100, 'imagen1.jpg', 'ABC1243');
-manager.addProduct('Título2', 'Descripción1¡', 10, 100, 'imagen2.jpg', 'AB4C123');
+// // Ejemplo de uso
+// const manager = new ProductManager();
+// manager.addProduct('Título', 'Descripción', 10, 100, 'imagen.jpg', 'ABC123');
+// manager.addProduct('Título1', 'Descripción1', 10, 100, 'imagen1.jpg', 'ABC1243');
+// manager.addProduct('Título2', 'Descripción1¡', 10, 100, 'imagen2.jpg', 'AB4C123');
 
 
 
-console.log("Todos los productos:");
-console.log(manager.getProducts());
+// console.log("Todos los productos:");
+// console.log(manager.getProducts());
 
 
-console.log(manager.getProductById(2));
+// console.log(manager.getProductById(2));
 
 
-console.log(manager.getProductById(3));
+// console.log(manager.getProductById(3));
 
-// Modifica el producto con ID 1
-manager.updateProduct(1, { title: 'Nuevo Título', price: 20 });
+// // Modifica el producto con ID 1
+// manager.updateProduct(1, { title: 'Nuevo Título', price: 20 });
 
 // console.log(manager.deleteProduct(2));
 
 // console.log("Todos los productos:");
 // console.log(manager.getProducts());
+
+module.exports = ProductManager;
