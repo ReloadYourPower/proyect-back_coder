@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+           <h1>Bienvenidos a nuestro chat!</h1>
+           <script src="/socket.io/socket.io.js" ></script>
+    <div id="userList">
+        <h2>Usuarios en línea:</h2>
+        <ul id="onlineUsers"></ul>
+    </div>
+    <div id="chatContainer">
+        <div class="messageLogs">
+            <p id="messageLogs"></p>
+        </div>
+        <input type="text" id="chatBox" placeholder="Escribe tu mensaje aquí">
+        <button id="enviar">Enviar</button>
+    </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/index.js"></script>
+
+    </body>
+</html>
