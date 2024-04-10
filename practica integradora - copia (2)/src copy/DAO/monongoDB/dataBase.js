@@ -1,4 +1,4 @@
-const { MongoClient, ObjectID } = require('mongodb');
+const { MongoClient } = require('mongodb');
 
 // URI de conexión a tu base de datos MongoDB
 const uri = "mongodb+srv://reloadyoupower:80mSmV56CAe6cYwl@cluster0.vrb7xui.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -131,61 +131,3 @@ async deleteProductByCode(productCode) {
 // Exportar una instancia de DatabaseManager para su uso en otros módulos
 module.exports = DatabaseManager;
 
-
-  // async readDocumentById(id) {
-    //     try {
-    //         const database = this.client.db(databaseName);
-    //         const collection = database.collection(collectionName);
-    //         const document = await collection.findOne({ id: id });
-    //         console.log("Documento encontrado:");
-    //         console.log(document);
-    //     } catch (error) {
-    //         console.error("Error al leer el documento por ID:", error);
-    //     }
-    // }
-    // Función para buscar un producto por su ID personalizado
-// async findProductByCustomId(databaseName, collectionName, customId) {
-//     try {
-//         // Conectar al cliente de MongoDB
-//         await client.connect();
-
-//         // Obtener la referencia de la base de datos y la colección
-//         const database = client.db(databaseName);
-//         const collection = database.collection(collectionName);
-
-//         // Buscar el producto por su ID personalizado
-//         const product = await collection.findOne({ id: customId });
-
-//         return product;
-//     } catch (error) {
-//         console.error("Error al buscar el producto por ID personalizado:", error);
-//         throw error;
-//     } finally {
-//         // Cerrar la conexión al finalizar
-//         await client.close();
-//     }
-// }
-
-// Función para buscar un producto por su código
-// Función para buscar un producto por su código
-  // async updateDocumentById(id, newData) {
-    //     try {
-    //         const database = this.client.db(databaseName);
-    //         const collection = database.collection(collectionName);
-    //         await collection.updateOne({ id: id }, { $set: newData });
-    //         console.log("Documento actualizado exitosamente.");
-    //     } catch (error) {
-    //         console.error("Error al actualizar el documento por ID:", error);
-    //     }
-    // }
-
-    // async deleteDocumentById(id) {
-    //     try {
-    //         const database = this.client.db(databaseName);
-    //         const collection = database.collection(collectionName);
-    //         await collection.deleteOne({ id: id });
-    //         console.log("Documento eliminado exitosamente.");
-    //     } catch (error) {
-    //         console.error("Error al eliminar el documento por ID:", error);
-    //     }
-    // }
