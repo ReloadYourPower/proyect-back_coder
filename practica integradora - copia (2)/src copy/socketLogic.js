@@ -66,22 +66,28 @@ function initializeSocket(httpServer) {
 
 // Evento para manejar el nombre de usuario
 socket.on('username', userName => {
-    
+    // Asignar el nombre de usuario actual
+    currentUserName = userName;
+
     // Verificar si el usuario ya existe en el objeto de mensajes
-    if (!userMessages[userName]) {
-        // Si el usuario no existe, inicializar su entrada en el objeto de mensajes
-        userMessages[userName] = { username: userName, messages: [] };
+    if (!userMessages[currentUserName]) {
+        // Inicializar su entrada en el objeto de mensajes
+        userMessages[currentUserName] = { username: currentUserName, messages: [] };
     }
 });
 
 // Evento para manejar los mensajes
 socket.on('message', message => {
-    // Verificar si el usuario existe en el objeto de mensajes
-    if (userMessages[userName]) {
+    // Verificar si hay un nombre de usuario actual
+    if (currentUserName) {
         // Agregar el mensaje al array de mensajes del usuario correspondiente
-        userMessages[userName].messages.push(message);
-        socket.emit('messageLogs', userMessages);
-    }});
+        userMessages[currentUserName].messages.push(message);
+
+        // Emitir los logs de mensajes actualizados al cliente
+        socket.emit('messageLogs', userMessages[currentUserName]);
+    }
+});
+
     
    
    
