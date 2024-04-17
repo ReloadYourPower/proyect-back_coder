@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Products</title>
+<script src="/socket.io/socket.io.js" ></script> 
+
+</head>
+<body>
+    <h1>Real-Time Products</h1>
+
+    <h2>Productos</h2>
+    <ul id="productList">
+        {{#each products}}
+            <li>{{this.title}}- {{this.code}} - {{this.price}}</li>
+        {{/each}}
+    </ul>
+
+ <h2>Productos en Mongoose</h2>
+    <ul id="productList">
+        {{#each products}}
+            <li>{{this.title}}- {{this._id}}- {{this.code}} - {{this.price}}</li>
+        {{/each}}
+    </ul>
+    <h2>Agregar Producto</h2>
+    <form id="addProductForm">
+        <input type="text" name="title" placeholder="Título" required>
+        <input type="text" name="description" placeholder="Descripción" required>
+        <input type="number" name="price" placeholder="Precio" required>
+        <input type="number" name="stock" placeholder="Stock" required>
+        <input type="checkbox" name="status" id="statusCheckbox">
+        <label for="statusCheckbox">Disponible</label>
+        <input type="text" name="thumbnail" placeholder="Imagen" required>
+         <input type="text" name="code" placeholder="Code" required>
+        <input type="text" name="category" placeholder="Categoría" required>
+        <button type="submit" id="addProductBtn">Agregar Producto</button>
+    </form>
+
+    <form  id="updateProductForm">
+    <h2>Update Product</h2>
+    <label for="productId">Product ID:</label>
+    <input type="number" id="updateProductId" name="updateProductId" required><br><br>
+    <label for="productId">Product Code:</label>
+    <input type="number" id="updateProductCode" name="updateProductCode" required><br><br>
+    <!-- Aquí van los campos que se van a actualizar -->
+   <input type="text" name="title" placeholder="Título" required>
+        <input type="text" name="description" placeholder="Descripción" required>
+        <input type="number" name="price" placeholder="Precio" required>
+        <input type="number" name="stock" placeholder="Stock" required>
+        <input type="checkbox" name="status" id="statusCheckbox">
+        <label for="statusCheckbox">Disponible</label>
+        <input type="text" name="thumbnail" placeholder="Imagen" required>
+         <input type="text" name="code" placeholder="Code" required>
+        <input type="text" name="category" placeholder="Categoría" required>
+    <button type="submit" id="updateProductBtn">Update Product</button>
+</form>
+
+<form  method="post" id="viewProductForm">
+<h2>View product</h2>
+    <label for="viewProductId">Product ID:</label>
+    <input type="" id="viewProductId" name="productId"><br><br>
+    <label for="viewProductCode">Product Code:</label>
+    <input type="" id="viewProductCode" name="productCode"><br><br>
+    <button type="submit" id="viewProductBtn">View Product</button>
+</form>
+
+<form  method="post" id="deleteProductForm">
+<h2>DELETE Product</h2>
+    <label for="deleteProductId">Product ID:</label>
+    <input type="number" id="deleteProductId" name="productId"><br><br>
+    <label for="deleteProductId">Product Code:</label>
+    <input type="" id="deleteProductCode" name="productCode"><br><br>
+      <!-- Borrar definitivamente el producto -->
+    <button type="submit" id="deleteProductBtn">Delete</button>
+
+</form>
+     <script src="/client.js"></script>
+</body>
+
+</html>
