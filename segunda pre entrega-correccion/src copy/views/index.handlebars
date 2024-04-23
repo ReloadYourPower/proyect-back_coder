@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    <script src="/socket.io/socket.io.js" ></script>
+
+    <style>
+        /* Estilos CSS para la lista de productos */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #dc1414;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+ <div class="container">
+        <h1>Lista de Producto</h1><br></br>
+
+<p>Total Products: {{ totalCount }}</p>
+<p>Total Pages: {{ totalPages }}</p>
+<p>Current Page: {{ currentPage }}</p><br></br>
+
+<form action="/" method="GET">
+    <label for="limit">Mostrar:</label>
+    <select name="limit" id="limit">
+        <option value="5">5 por página</option>
+        <option value="10">10 por página</option>
+        <option value="20">20 por página</option>
+    </select>
+      <label for="page">Página:</label>
+    <input type="text" name="page" id="page" value="{{page}}" required>
+    <label for="query">Filtro de búsqueda:</label>
+    <input type="text" name="query" id="query" value="{{query}}">
+    <button type="submit">Actualizar</button>
+</form>
+
+<br></br>
+    <ul>
+        {{#each products}}
+            <li>
+                <div id="product">
+                  {{!-- <h2>{{name}}</h2>
+                  <p>Precio: {{price}}</p>
+                  <p>Descripción: {{description}}</p> --}}
+                  <h2>{{this.title}}</h2>
+            <p>{{this.description}}</p>
+            <p>Precio: {{this.price}}</p>
+            <!-- Otros detalles del producto -->
+                </div>
+                <button id="addCarts">Agregar al carrito</button>
+                <button id="">Comprar</button>
+            </li>
+        {{/each}}
+    </ul>
+     <button class="but-view">Ir a Real-Time Products</button><br></br>
+
+      <!-- Navegación entre páginas -->
+   {{#if (gt currentPage 1)}}
+    <a href="/?page={{ prev currentPage }}&limit={{ currentLimit }}">Anterior</a>
+{{/if}}
+
+{{#if (lt currentPage totalPages)}}
+    <a href="/?page={{ next currentPage }}&limit={{ currentLimit }}">Siguiente</a>
+{{/if}}
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+
+         <script src="/buttons.js"></script>
+         <script src="/carts.js"></script>
+</body>
+ </html>
