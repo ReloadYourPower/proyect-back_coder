@@ -1,6 +1,0 @@
-# Ignorar la carpeta node_modules
-node_modules/
-
-# Ignorar archivos de configuración específicos
-config.json
-secret.txt
