@@ -1,0 +1,156 @@
+[
+  {
+    "id": 2,
+    "title": "Producto 2",
+    "description": "Descripción del Producto 2",
+    "price": 65,
+    "stock": 209,
+    "status": true,
+    "thumbnaild": "imagen2.jpg",
+    "code": "XVG2R5",
+    "category": "Categoría 1"
+  },
+  {
+    "id": 3,
+    "title": "Producto 3",
+    "description": "Descripción del Producto 3",
+    "price": 91,
+    "stock": 754,
+    "status": true,
+    "thumbnaild": "imagen3.jpg",
+    "code": "9GA16K",
+    "category": "Categoría 1"
+  },
+  {
+    "id": 4,
+    "title": "Producto 4",
+    "description": "Descripción del Producto 4",
+    "price": 54,
+    "stock": 972,
+    "status": false,
+    "thumbnaild": "imagen4.jpg",
+    "code": "LKPBMP",
+    "category": "Categoría 1"
+  },
+  {
+    "id": 5,
+    "title": "Producto 5",
+    "description": "Descripción del Producto 5",
+    "price": 50,
+    "stock": 917,
+    "status": true,
+    "thumbnaild": "imagen5.jpg",
+    "code": "EPWF2L",
+    "category": "Categoría 2"
+  },
+  {
+    "id": 6,
+    "title": "Producto 6",
+    "description": "Descripción del Producto 6",
+    "price": 59,
+    "stock": 310,
+    "status": false,
+    "thumbnaild": "imagen6.jpg",
+    "code": "WF58DH",
+    "category": "Categoría 2"
+  },
+  {
+    "id": 7,
+    "title": "Producto 7",
+    "description": "Descripción del Producto 7",
+    "price": 62,
+    "stock": 708,
+    "status": true,
+    "thumbnaild": "imagen7.jpg",
+    "code": "PVJ9Q1",
+    "category": "Categoría 2"
+  },
+  {
+    "id": 8,
+    "title": "Producto 8",
+    "description": "Descripción del Producto 8",
+    "price": 52,
+    "stock": 177,
+    "status": true,
+    "thumbnaild": "imagen8.jpg",
+    "code": "VLMZD7",
+    "category": "Categoría 2"
+  },
+  {
+    "id": 9,
+    "title": "Producto 9",
+    "description": "Descripción del Producto 9",
+    "price": 15,
+    "stock": 37,
+    "status": false,
+    "thumbnaild": "imagen9.jpg",
+    "code": "RD9BQX",
+    "category": "Categoría 3"
+  },
+  {
+    "id": 10,
+    "title": "Producto 10",
+    "description": "Descripción del Producto 10",
+    "price": 42,
+    "stock": 583,
+    "status": true,
+    "thumbnaild": "imagen10.jpg",
+    "code": "F7DBMX",
+    "category": "Categoría 3"
+  },
+  {
+    "id": 11,
+    "title": "Producto 11",
+    "description": "Descripción del Producto 11",
+    "price": 91,
+    "stock": 869,
+    "status": true,
+    "thumbnaild": "imagen11.jpg",
+    "code": "DWD1ZN",
+    "category": "Categoría 3"
+  },
+  {
+    "id": 12,
+    "title": "Producto 12",
+    "description": "Descripción del Producto 12",
+    "price": 18,
+    "stock": 118,
+    "status": true,
+    "thumbnaild": "imagen12.jpg",
+    "code": "JAPAF1",
+    "category": "Categoría 3"
+  },
+  {
+    "id": 13,
+    "title": "Producto 13",
+    "description": "Descripción del Producto 13",
+    "price": 30,
+    "stock": 326,
+    "status": false,
+    "thumbnaild": "imagen13.jpg",
+    "code": "ACG483",
+    "category": "Categoría 4"
+  },
+  {
+    "id": 14,
+    "title": "Producto 14",
+    "description": "Limpiar los muebles de ropa",
+    "price": "5680",
+    "stock": "65",
+    "status": true,
+    "thumbnaild": "56565",
+    "code": "a<s555xz",
+    "category": "limpieza"
+  },
+  {
+    "id": 15,
+    "title": "Producto 15",
+    "description": "Descripción del Producto 15",
+    "price": "120",
+    "stock": "150",
+    "status": true,
+    "thumbnaild": " imagen15.jpg",
+    "code": "ZHY789",
+    "category": "Computacion"
+  }
+]
