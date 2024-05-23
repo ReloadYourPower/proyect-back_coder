@@ -1,0 +1,229 @@
+[{
+  "_id":
+     "664be5a912aa221c4932e4f9"
+  ,
+  "name": "retrete",
+  "price": 5000,
+  "description": "gfhfgd fjdf gnd fhd ",
+  "__v": 0
+},
+{
+  "_id": 
+   "664d0caf6c692193c5dad713",
+  
+  "name": "retrete",
+  "price": 6000,
+  "description": "jhk,gjh ghkjh kk  hjkhjk",
+  "__v": 0
+},
+{
+  "_id": "664d0ebcaddbe2eabe19120e"
+  ,
+  "name": "retrete",
+  "price": 6000,
+  "description": "gsdfhfh  dfgh fhdfhhsh ",
+  "__v": 0
+},
+{
+  "_id": 
+     "664d0f56add3a5cf7db855f0"
+  ,
+  "name": "retrete",
+  "price": 6000,
+  "description": "jklghm kkfhjkghlkg kghjkghkjh",
+  "__v": 0
+},
+{
+  "_id": 
+     "664d0f9fe47d875a96eec2f6"
+  ,
+  "name": "reterte",
+  "price": 6000,
+  "description": "ghdf hdfhdfh fdh ",
+  "__v": 0
+},
+{
+  "_id": "664d13d739e2d15a816eeea1"
+  ,
+  "name": "reterte",
+  "price": 62222,
+  "description": "4gh fjjdgjhg  j gjhf",
+  "__v": 0
+},
+{
+  "_id":
+     "664d147332ea009de631e030"
+  ,
+  "name": "reterte",
+  "price": 85454,
+  "description": "dfg dfjhd jr ",
+  "__v": 0
+},
+{
+  "_id":  "664d14dbe58d143437806189"
+  ,
+  "name": "Rodrigo",
+  "price": 8500000,
+  "description": "4 88ghdf8hdf8h8df 8 8fgjh8",
+  "__v": 0
+},
+{
+  "_id": "664d31c2cbf76f064e78558b"
+  ,
+  "name": "Laptop",
+  "price": 1200,
+  "description": "Powerful laptop with high performance.",
+  "category": "Electronics"
+},
+{
+  "_id":  "664d31c2cbf76f064e78558c",
+  "name": "Smartphone",
+  "price": 800,
+  "description": "Latest smartphone with advanced features.",
+  "category": "Electronics"
+},
+{
+  "_id":  "664d31c2cbf76f064e78558d"
+  ,
+  "name": "Headphones",
+  "price": 150,
+  "description": "Wireless headphones with noise cancellation.",
+  "category": "Electronics"
+},
+{
+  "_id":  "664d31c2cbf76f064e78558e"
+  ,
+  "name": "Coffee Maker",
+  "price": 50,
+  "description": "Automatic coffee maker for brewing fresh coffee.",
+  "category": "Kitchen Appliances"
+},
+{
+  "_id": "664d31c2cbf76f064e78558f",
+  
+  "name": "Bluetooth Speaker",
+  "price": 100,
+  "description": "Portable Bluetooth speaker for music on-the-go.",
+  "category": "Electronics"
+},
+{
+  "_id": 
+   "664d31c2cbf76f064e785590"
+,
+  "name": "Running Shoes",
+  "price": 80,
+  "description": "Comfortable running shoes with good grip.",
+  "category": "Footwear"
+},
+{
+  "_id":  "664d31c2cbf76f064e785591"
+  ,
+  "name": "Backpack",
+  "price": 40,
+  "description": "Durable backpack with multiple compartments.",
+  "category": "Bags & Luggage"
+},
+{
+  "_id": "664d31c2cbf76f064e785592"
+  ,
+  "name": "Fitness Tracker",
+  "price": 60,
+  "description": "Wearable fitness tracker for monitoring activity.",
+  "category": "Fitness & Sports"
+},
+{
+  "_id": "664d31c2cbf76f064e785593"
+  ,
+  "name": "Gaming Mouse",
+  "price": 30,
+  "description": "High-precision gaming mouse with customizable buttons.",
+  "category": "Gaming Accessories"
+},
+{
+  "_id": "664d31c2cbf76f064e785594"
+  ,
+  "name": "Yoga Mat",
+  "price": 20,
+  "description": "Non-slip yoga mat for yoga and exercise routines.",
+  "category": "Fitness & Sports"
+},
+{
+  "_id":  "664d31e7cbf76f064e785596"
+  ,
+  "name": "Smart TV",
+  "price": 800,
+  "description": "55-inch 4K Ultra HD Smart LED TV with HDR and Alexa Compatibility",
+  "category": "Electronics"
+},
+{
+  "_id": "664d31e7cbf76f064e785597"
+  ,
+  "name": "Wireless Earbuds",
+  "price": 120,
+  "description": "Bluetooth 5.0 Wireless Earbuds with Wireless Charging Case",
+  "category": "Electronics"
+},
+{
+  "_id":  "664d31e7cbf76f064e785598"
+  ,
+  "name": "Coffee Machine",
+  "price": 150,
+  "description": "Automatic Espresso Machine with Milk Frother",
+  "category": "Kitchen Appliances"
+},
+{
+  "_id":  "664d31e7cbf76f064e785599"
+  ,
+  "name": "Digital Camera",
+  "price": 600,
+  "description": "24.2 MP DSLR Camera with 18-55mm VR Lens and 3.2-Inch LCD",
+  "category": "Electronics"
+},
+{
+  "_id":  "664d31e7cbf76f064e78559a"
+  ,
+  "name": "Running Jacket",
+  "price": 70,
+  "description": "Waterproof Reflective Running Jacket with Hood",
+  "category": "Sports & Outdoors"
+},
+{
+  "_id":  "664d31e7cbf76f064e78559b"
+  ,
+  "name": "Bluetooth Speaker",
+  "price": 50,
+  "description": "Portable Wireless Bluetooth Speaker with HD Sound and Bass",
+  "category": "Electronics"
+},
+{
+  "_id": "664d31e7cbf76f064e78559c"
+  ,
+  "name": "Fitness Tracker",
+  "price": 80,
+  "description": "Waterproof Fitness Tracker with Heart Rate Monitor and Sleep Tracker",
+  "category": "Fitness & Sports"
+},
+{
+  "_id":  "664d31e7cbf76f064e78559d"
+  ,
+  "name": "Gaming Keyboard",
+  "price": 100,
+  "description": "RGB Mechanical Gaming Keyboard with Programmable Keys",
+  "category": "Gaming Accessories"
+},
+{
+  "_id":  "664d31e7cbf76f064e78559e"
+  ,
+  "name": "Hiking Backpack",
+  "price": 60,
+  "description": "Lightweight Hiking Backpack with Hydration Compatible Design",
+  "category": "Outdoor Gear"
+},
+{
+  "_id":  "664d31e7cbf76f064e78559f"
+  ,
+  "name": "Electric Toothbrush",
+  "price": 40,
+  "description": "Sonic Electric Toothbrush with 4 Replacement Brush Heads",
+  "category": "Health & Personal Care"
+}]
