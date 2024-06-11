@@ -1,0 +1,22 @@
+{
+  "name": "express-handlebars-faker-winston-app",
+  "version": "1.0.0",
+  "description": "A simple Express app with Handlebars, Faker, and Winston logging",
+  "main": "app.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production nodemon app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2",
+    "winston": "^3.13.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.3"
+  },
+  "author": "Torres rodrigo",
+  "license": "ISC"
+}
