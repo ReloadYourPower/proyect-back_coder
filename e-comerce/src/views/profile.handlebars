@@ -1,0 +1,48 @@
+ <div class="container">
+            <div class="alert alert-success" role="alert">
+                <p>Bienvenido, estás autenticado.</p>
+            </div>
+        </div>
+   
+<br>
+<form action="/profile" method="GET" class="mb-4">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <input type="text" name="search" class="form-control" placeholder="Buscar por nombre o descripción">
+        </div>
+        <div class="col-md-4 mb-3">
+            <input type="number" name="minPrice" class="form-control" placeholder="Precio mínimo">
+        </div>
+        <div class="col-md-4 mb-3">
+            <input type="number" name="maxPrice" class="form-control" placeholder="Precio máximo">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+    <!-- Lista de productos -->
+        <div class="mt-5">
+            <h3>Product List</h3>
+            <div id="product-list">
+                {{#each products}}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.name}}</h5>
+                            <p class="card-text">{{this.description}}</p>
+                            <p class="card-text">Price: ${{this.price}}</p>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="pagination justify-content-center">
+    <a class="page-link" href="/profile?page=1">Página 1</a>
+    <a class="page-link" href="/profile?page=2">Página 2</a>
+    <a class="page-link" href="/profile?page=3">Página 3</a>
+    <a class="page-link" href="/profile?page=4">Página 4</a>
+</div>
+       
+  
+  
+
