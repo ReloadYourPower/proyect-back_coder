@@ -20,4 +20,6 @@ const ProductSchema = new mongoose.Schema({
   owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null }
 });
 
-module.exports = mongoose.model('Product', ProductSchema);
+
+const Product = mongoose.model('Product', ProductSchema);
+module.exports = Product;

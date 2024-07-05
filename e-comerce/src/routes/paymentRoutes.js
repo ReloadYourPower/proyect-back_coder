@@ -1,9 +1,9 @@
 const Router = require('express');
 const router = Router();
-const paymentController = require('../controllers/paymentController');
+const {viewPayments,processPayment} = require('../controllers/paymentController');
 const { ensureAuthenticated } = require('../middlewares/authMiddleware');
 
-router.get('/', ensureAuthenticated, paymentController.viewPayments);
-router.post('/process', ensureAuthenticated, paymentController.processPayment);
+router.get('/', ensureAuthenticated, viewPayments);
+router.post('/process', ensureAuthenticated, processPayment);
 
 module.exports = router;

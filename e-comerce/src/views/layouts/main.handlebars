@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
+     <script>
+        window.isAuthenticated = {{#if isAuthenticated}}true{{else}}false{{/if}};
+    </script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
@@ -36,16 +39,16 @@
             <a class="navbar-brand" href="#">Mi Aplicación</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                     <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
-                     <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                   <li id='login-nav-item' class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                     <li id='register-nav-item' ><a class="nav-link" href="/login">Login</a></li>
 
                     {{#if user}}
-                         <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/cart">Cart</a></li>
+                         <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/profile/products">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/profile/dashboard">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/profile/cart">Cart</a></li>
                          <li class="nav-item">
-                                <form action="/auth/logout" method="post" class="form-inline">
+                                <form action="auth/logout" method="post" class="form-inline">
                                     <button type="submit" class="btn btn-outline-danger">Cerrar Sesión</button>
                                 </form>
                             </li>
@@ -56,11 +59,6 @@
                         {{/if}}
                     {{else}}
 
-                        <li class="nav-item">
-                                <form action="/logout" method="post" class="form-inline">
-                                    <button type="submit" class="btn btn-outline-danger">Cerrar Sesión</button>
-                                </form>
-                            </li>
                     {{/if}}
                 </ul>
             </div>
@@ -69,6 +67,7 @@
     <main>
         {{{body}}}
     </main>
+    <script src="../viewsUtils/utils.js"></script> 
     <footer>
         <p>&copy; 2024 Mi Aplicación. Todos los derechos reservados.</p>
     </footer>

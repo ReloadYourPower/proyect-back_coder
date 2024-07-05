@@ -1,33 +1,37 @@
 const Router= require('express');
 const router = Router();
-const {homePage,registerPage,loginPage,dashboardPage} = require('../controllers/viewController');
+const {registerPage,loginPage,dashboardPage,profile} = require('../controllers/viewController');
 const { ensureAuthenticated, forwardAuthenticated } = require('../middlewares/authMiddleware');
-// const  validateUserRegistration = require('../middlewares/validationMiddleware');
 const {registerUser} = require('../controllers/authController');
 const passport = require('passport')
 
-router.get('/', homePage);
+router.get('/',loginPage);
 router.get('/register', forwardAuthenticated, registerPage);
 router.get('/login', forwardAuthenticated, loginPage);
 // Ruta POST para el registro de usuarios
 router.post('/register', forwardAuthenticated,registerUser);
-router.post('/register',  registerUser);
-  router.post('/login',forwardAuthenticated,  (req, res, next) => {
-    console.log('Datos de login recibidos:', req.body);
+router.post('/login',  (req, res, next) => {
     passport.authenticate('local', {
       successRedirect: '/profile',
       failureRedirect: '/login',
       failureFlash: true
     })(req, res, next)});
-  
-// router.get('/profile', ensureAuthenticated, viewController.dashboardPage);
 
 router.get('/profile', (req, res) => {
   if (req.isAuthenticated()) {
-    res.render('profile');
+    const user = {
+      name: 'John Doe',
+      email: 'john.doe@example.com',
+      avatar: '/images/avatar.jpg',
+      bio: 'Desarrollador de software con experiencia en Node.js y Express.',
+      location: 'San Francisco, CA'
+  };
+  res.render('profile', { title: 'Perfil de Usuario', user, isAuthenticated: req.isAuthenticated() });
+    // profile()
   } else {
     res.redirect('/login');
   }
 });
-router.get('/error401', ensureAuthenticated, dashboardPage);
+router.get('/dashboard', ensureAuthenticated, dashboardPage);
+router.get('/error401', ensureAuthenticated, );
 module.exports = router;
