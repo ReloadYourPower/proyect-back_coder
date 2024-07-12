@@ -10,10 +10,13 @@ describe('Testing products',()=>{
         // se ejecuta una unica vez antes de todos los test 
         this.timeout(10000);
         chai.request(app)
-      .get('/profile/')
-      .end((err, res) => {
-        expect(res).to.have.status(200);
-        expect(res.body).to.be.an('array');
-        done(); });
+        chai.request(app)
+        .post('/login')
+        .send({ email: 'user@example.com', password: 'password@#t-3' }) // Ajusta los datos de prueba según tu implementación
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          expect(res.body).to.have.property('token');
+          done();
+        });
     })
 })

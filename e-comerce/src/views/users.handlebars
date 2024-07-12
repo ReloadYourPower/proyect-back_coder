@@ -1,0 +1,42 @@
+{{!-- src/views/users.hbs --}}
+<h1>Users</h1>
+{{#if error_msg}}
+  <div class="alert alert-danger" role="alert">
+    {{error_msg}}
+  </div>
+{{/if}}
+{{#if success_msg}}
+  <div class="alert alert-success" role="alert">
+    {{success_msg}}
+  </div>
+{{/if}}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users}}
+      <tr>
+        <td>{{this._id}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.role}}</td>
+        <td>
+         <a href="/users/{{this.id}}" class="btn btn-primary btn-sm">Update</a>
+        <form action="/premium/{{this.id}}?_method=PATCH" method="post" style="display:inline;">
+          <input type="hidden" name="role" value="{{#if (eq this.role "user")}}admin{{else}}user{{/if}}">
+          <button type="submit" class="btn btn-secondary btn-sm">Toggle Role</button>
+        </form>
+        <form action="/users/delete/{{this.id}}" method="post" style="display:inline;">
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

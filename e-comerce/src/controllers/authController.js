@@ -178,17 +178,31 @@ const currentUser = (req, res) => {
     res.send(userDTO);
 };
 
-
 const logoutUser = (req, res) => {
   req.logout((err) => {
     if (err) {
-      req.flash('error_msg', 'Error logging out');
-      return res.redirect('/');
+      return next(err);
     }
-    req.flash('success_msg', 'You are logged out');
-    res.redirect('/login');
+    req.session.destroy((err) => {
+      if (err) {
+        return next(err);
+      }
+      res.clearCookie('connect.sid', { path: '/' });
+      res.redirect('/login');
+    });
   });
 };
+
+// const logoutUser = (req, res) => {
+//   req.logout((err) => {
+//     if (err) {
+//       req.flash('error_msg', 'Error logging out');
+//       return res.redirect('/');
+//     }
+//     req.flash('success_msg', 'You are logged out');
+//     res.redirect('/login');
+//   });
+// };
 const loginPage = (req, res) => {
   res.render('login');
 };
@@ -198,7 +212,8 @@ const registerPage = (req, res) => {
 };
 const roleMiddleware = (requiredRole) => {
   return (req, res, next) => {
-      if (req.user.role !== requiredRole || 'admin') {
+    req.user.role ='premium'
+      if (req.user.role !== requiredRole || 'premium') {
           return res.status(403).send('Permission Denied');
       }
       next();

@@ -6,7 +6,6 @@
    
 <br>
 <!-- views/profile.handlebars -->
-<main class="container mt-5">
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="card">
@@ -19,16 +18,25 @@
                     <p><strong>Email:</strong> {{user.email}}</p>
                     <p><strong>Ubicación:</strong> {{user.location}}</p>
                     <p><strong>Biografía:</strong> {{user.bio}}</p>
-                    <li class="nav-item">
-                                <form action="/user" method="post" class="form-inline">
-                                    <button type="submit" class="btn btn-outline-danger">users</button>
-                                </form>
-                            </li>
+                        <div class="container">
+                            <button id="showAlertButton" class="btn btn-primary">current</button>
+                        </div>
+                        <br>
+                        <div class="container">
+                            <button id="showAlertButton2" class="btn btn-primary">users</button>
+                        </div>
+                        <br>
+                        <div class="container">
+                            <button id="showAlertButton3" class="btn btn-primary">Premium</button>
+                        </div>
+                    
                 </div>
             </div>
         </div>
     </div>
-</main>
+    
+   
+
 
 
 

@@ -10,7 +10,7 @@ describe('Testing products',()=>{
         // se ejecuta una unica vez antes de todos los test 
         this.timeout(10000);
         chai.request(app)
-      .get('/profile/')
+      .get('/profile/products')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res.body).to.be.an('array');

@@ -4,6 +4,7 @@ const {registerPage,loginPage,dashboardPage,profile} = require('../controllers/v
 const { ensureAuthenticated, forwardAuthenticated } = require('../middlewares/authMiddleware');
 const {registerUser} = require('../controllers/authController');
 const passport = require('passport')
+const User = require('../models/User');
 
 router.get('/',loginPage);
 router.get('/register', forwardAuthenticated, registerPage);
@@ -19,16 +20,23 @@ router.post('/login',  (req, res, next) => {
 
 router.get('/profile', (req, res) => {
   if (req.isAuthenticated()) {
-    const user = {
-      name: 'John Doe',
-      email: 'john.doe@example.com',
-      avatar: '/images/avatar.jpg',
-      bio: 'Desarrollador de software con experiencia en Node.js y Express.',
-      location: 'San Francisco, CA'
-  };
-  res.render('profile', { title: 'Perfil de Usuario', user, isAuthenticated: req.isAuthenticated() });
-    // profile()
-  } else {
+    const { email } = req.body;
+
+        const user = User.findOne({ email });
+        if (!user) {
+          return res.status(404).send('Usuario no encontrado');
+        }
+        res.render('profile', {
+          title: 'Perfil de Usuario',
+          user: {
+            email: user.email,
+            location: user.location,
+            bio: user.bio
+          },
+          isAuthenticated: req.isAuthenticated()
+        });
+      }
+  else {
     res.redirect('/login');
   }
 });

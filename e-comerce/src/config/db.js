@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
+const createMockProducts = require('../utils/mocking');
 require('dotenv').config();
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
+    await mongoose.connect(process.env.DB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+    // createMockProducts
     console.log('MongoDB connected');
   } catch (err) {
     console.error(err.message);

@@ -10,25 +10,30 @@ const bodyParser = require('body-parser');
 const handlebars = require('express-handlebars');
 const routes = require('./index');  // Importar el index de rutas
 const hash = require('./config/passport');
-const Product = require('./models/Product');
+const connectDB = require('./config/db');
+const Handle = require('handlebars');
 const { swaggerUi, swaggerDocs } = require('./swager/swagger');
-const createMockProducts = require('./utils/mocking');
-
+const methodOverride = require('method-override');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // Conectar a MongoDB
-mongoose.connect(process.env.DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-.then(async () => {
+connectDB().then(async () => {
     console.log('Connected to MongoDB');
-    await createMockProducts();
-  })
-.catch(err => console.error('MongoDB connection error:', err));
+    //  await createMockProducts();
+    })
+   .catch(err => console.error('MongoDB connection error:', err));
+// mongoose.connect(process.env.DB_URL, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// })
+//  .then(async () => {
+// //     console.log('Connected to MongoDB');
+// //     await createMockProducts();
+//   })
+//  .catch(err => console.error('MongoDB connection error:', err));
 
 // Configurar sesiones
 app.use(session({
@@ -43,6 +48,8 @@ hash(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(methodOverride('_method'));
+
 // Configurar Handlebars
 app.engine('handlebars', handlebars.engine());
 app.set('views', path.join(__dirname, 'views'));
@@ -54,7 +61,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(flash());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'views')));
 
 // Variables globales
 app.use((req, res, next) => {
@@ -64,22 +71,18 @@ app.use((req, res, next) => {
     res.locals.user = req.user || null;
     next();
 });
-
+// Registrar helper 'eq'
+Handle.registerHelper('eq', (a, b) => {
+    return a === b;
+  });
 // Rutas
 app.use('/',routes);  // Usar el index de rutas
-app.use('/profile/products', async (req, res) => {
-    const products = await Product.find({});
-    res.send( { products });
-  });
-  // Configurar Swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-// Incluir rutas
-// const exampleRoute = require('./routes/swagger/userSwa');
-// app.use('/api', exampleRoute);
   // Configurar Swagger
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 // Iniciar el servidor
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+module.exports = app;
